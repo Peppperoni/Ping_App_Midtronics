@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -7,20 +8,41 @@
     android:layout_height="match_parent"
     tools:context="com.ping.ping_app.MainActivity">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_me"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:contentDescription="Ping"
+        app:srcCompat="@mipmap/profile" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="30dp"
+            android:text="I’m a recent graduate from UW-Parkside with a Master of Science in Computer and Information Systems, who have participated in many software developments in college and looking for more opportunities.
+
+I have worked as an Android developer for Maruf. In this position, I worked in an agile team of 5, responsible for analyzing user requirements and developing interactive interfaces. The product is released successfully.
+
+On the Micro Rental project, I created a user-friendly management information system for an environmental liability insurance company. I also collaborated with the product manager and the UI designer to develop the back-end of a corresponding Android service platform. Then I optimized the SQL database structure to integrate with both the MIS and the Android platform. The working efficiency of our client was doubled.
+
+Programming Languages: Java, C++, C#, HTML/CSS, JavaScript, Python, SQL
+Software: Android Studio, Visual Studio 2017, Oracle, Unity3D, Photoshop"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="15sp" />
+    </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
@@ -29,5 +51,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

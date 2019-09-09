@@ -1,10 +1,15 @@
 package com.ping.ping_app;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class ListActivity extends AppCompatActivity
@@ -19,6 +24,7 @@ public class ListActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_countries);
@@ -48,6 +54,11 @@ public class ListActivity extends AppCompatActivity
 
         Intent intent = new Intent(this, ShowCountryActivity.class);
         intent.putExtra("countryName",countryName);
+        startActivity(intent);
+    }
+
+    void toMainActivity (){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

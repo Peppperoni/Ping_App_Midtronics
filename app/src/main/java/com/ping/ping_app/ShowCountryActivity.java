@@ -29,6 +29,8 @@ import javax.net.ssl.HttpsURLConnection;
 public class ShowCountryActivity extends AppCompatActivity {
 
     TextView mTextView;
+    TextView mTextViewName;
+    TextView mInfoTextView;
     String error = ""; // string field
     String countryURL = "https://restcountries.eu/rest/v1/name/";
     String country = "China";
@@ -41,6 +43,8 @@ public class ShowCountryActivity extends AppCompatActivity {
         country = getCountyName();
 
         mTextView = (TextView)findViewById(R.id.listTextView);
+        mTextViewName = (TextView)findViewById(R.id.tv_name);
+        mInfoTextView = (TextView)findViewById(R.id.tv_listItems);
         new HttpGetTask().execute();
     }
 
@@ -92,13 +96,23 @@ public class ShowCountryActivity extends AppCompatActivity {
             String region = country.getString("region");
             String subregion = country.getString("subregion");
 
+            mTextViewName.setText(name);
+
+            mInfoTextView.setText(
+                    "\n  Capital:" + "\n\n"
+                            + "  Population:" + "\n\n"
+                            + "  Area:" + "\n\n"
+                            + "  Region:" + "\n\n"
+                            + "  Subregion:"
+            );
+
             mTextView.setText(
-                    "name:                      " + name + "\n"
-                    +"capital                     " + capital + "\n"
-                    +"population                    " + population + "\n"
-                    +"area                     " + area + "\n"
-                    +"region                    " + region + "\n"
-                    +"subregion                       " + subregion
+                    "\n"+
+                    capital + "\n\n"
+                    + population + "\n\n"
+                    + area + "\n\n"
+                    + region + "\n\n"
+                    + subregion
             );
         }catch(Exception e){
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
