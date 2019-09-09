@@ -1,6 +1,7 @@
 package com.ping.ping_app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,34 +32,17 @@ public class ShowCountryActivity extends AppCompatActivity {
     String error = ""; // string field
     String countryURL = "https://restcountries.eu/rest/v1/name/";
     String country = "China";
+    Intent mIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_country);
+        country = getCountyName();
 
         mTextView = (TextView)findViewById(R.id.listTextView);
         new HttpGetTask().execute();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int menuItemSelected = item.getItemId();
-        if (menuItemSelected == R.id.action_search){
-            Context context = ShowCountryActivity.this;
-            String message = "Search clicked";
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 
     private String getDataFromUrl(String CountryUrl) {
 
@@ -134,8 +118,17 @@ public class ShowCountryActivity extends AppCompatActivity {
                     updateUI(s);
                 }
                 else{
-                    mTextView.setText("Country doesn't exist");
+                    mTextView.setText("Country search error");
                 }
         }
+    }
+
+    private String getCountyName(){
+        mIntent = getIntent();
+        String countryName = mIntent.getStringExtra("countryName");
+        if(mIntent.hasExtra("countryName"))
+            return mIntent.getStringExtra("countryName");
+        else
+            return "error";
     }
 }

@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_country);
                     return true;
                 case R.id.navigation_country:
-                    toShowCountryActivity();
+                    //toShowCountryActivity();
+                    toContryListActivity();
                     return true;
             }
             return false;
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
     void toShowCountryActivity (){
         Intent intent = new Intent(this, ShowCountryActivity.class);
+        startActivity(intent);
+    }
+
+    void toContryListActivity (){
+        Intent intent = new Intent(this, ListActivity.class);
         startActivity(intent);
     }
 }

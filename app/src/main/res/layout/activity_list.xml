@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ping.ping_app.ListActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/top_shade"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/common_google_signin_btn_text_dark_focused"
+        android:shadowColor="@color/common_google_signin_btn_text_dark_focused" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/wallet_holo_blue_light"
+        android:fontFamily="monospace"
+        android:padding="15dp"
+        android:shadowColor="@color/common_google_signin_btn_text_dark_focused"
+        android:text="@string/country_list"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/bot_shade"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/common_google_signin_btn_text_dark_focused"
+        android:shadowColor="@color/common_google_signin_btn_text_dark_focused" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_countries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
