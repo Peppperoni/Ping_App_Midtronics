@@ -18,7 +18,7 @@ import org.w3c.dom.Text;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
     private static final String TAG = ItemAdapter.class.getSimpleName();
-    private int mNumberItems = 100;
+    private int mNumberItems = 240;
     private static int viewHoldCount;
 
     private String[] countryNames;
